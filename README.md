@@ -1,14 +1,20 @@
 # SQL Examples
 
 
-the list of CITY names from STATION that do start with vowels.
+the list of CITY names from station that do start with vowels.
 
 ```sql
-SELECT city FROM station WHERE city REGEXP '^([aeiou]{1,1}).*$';
+SELECT city FROM station WHERE city regexp '^([aeiou]{1,1}).*$';
 ```
 
-the list of CITY names from STATION that do not start with vowels and contains not duplicates.
+the list of CITY names from station that do not start with vowels and contains not duplicates.
 
 ```sql
-SELECT DISTINCT city FROM station WHERE city REGEXP '^([aeiou]{1,1}).*$' = 0; 
+SELECT DISTINCT city FROM station WHERE city regexp '^([aeiou]{1,1}).*$' = 0; 
+```
+
+the Name of any student in students who scored higher than  Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+```sql
+select name from students where marks > 75 order by right(name, 3), id asc
 ```
