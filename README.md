@@ -18,3 +18,13 @@ the Name of any student in students who scored higher than  Marks. Order your ou
 ```sql
 select name from students where marks > 75 order by right(name, 3), id asc
 ```
+
+Check if the age of people in a case statment
+```sql
+select 
+  case 
+       when age < 21 then 'Not ok'  
+       when age >= 21 then 'ok' 
+  end 
+from people;
+```sql
