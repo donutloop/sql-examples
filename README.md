@@ -27,4 +27,4 @@ select
        when age >= 21 then 'ok' 
   end 
 from people;
-```sql
+```
