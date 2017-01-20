@@ -28,3 +28,7 @@ select
   end 
 from people;
 ```
+the number of ocurrences of each occupation in OCCUPATIONS. 
+```sql
+SELECT "There are total", COUNT(OCCUPATION), concat(LOWER(OCCUPATION),"s.") FROM OCCUPATIONS GROUP BY OCCUPATION ORDER BY COUNT(OCCUPATION) ASC, OCCUPATION ASC;
+```
