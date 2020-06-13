@@ -32,3 +32,22 @@ the number of ocurrences of each occupation in OCCUPATIONS.
 ```sql
 SELECT "There are total", COUNT(OCCUPATION), concat(LOWER(OCCUPATION),"s.") FROM OCCUPATIONS GROUP BY OCCUPATION ORDER BY COUNT(OCCUPATION) ASC, OCCUPATION ASC;
 ```
+
+A SQL Function to get the nth highest salary from the Employee table.
+```sql
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  DECLARE o INT;
+  SET o := N-1;   
+  RETURN (
+      SELECT CASE WHEN Salary IS NULL
+        THEN NULL
+        ELSE Salary
+        END AS Salary FROM (select distinct Salary from Employee) AS E ORDER BY Salary DESC LIMIT 1 OFFSET o
+  );
+END
+```
+
+
+
+
